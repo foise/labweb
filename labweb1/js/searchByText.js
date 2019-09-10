@@ -1,17 +1,15 @@
-document.querySelector('#card').oninput = function () {
+document.querySelector('#card') = function () {
   let valSearch = this.value.trim();
   let cardItems = document.querySelectorAll('.card');
-  if (valSearch != '') {
-    cardItems.forEach(function (elem) {
-      if (elem.innerText.search(valSearch) == -1) {
+  cardItems.forEach(function (elem) {
+    if (valSearch !== '') {
+      if (elem.innerText.search(valSearch) === -1) {
         elem.classList.add('hide');
       } else {
         elem.classList.remove('hide');
       }
-    });
-  } else {
-    cardItems.forEach(function (elem) {
+    } else {
       elem.classList.remove('hide');
-    });
-  }
+    }
+  });
 }
