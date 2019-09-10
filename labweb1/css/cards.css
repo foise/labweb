@@ -114,3 +114,11 @@ body {
 .card.hide {
   display: none
 }
+
+.column.is-one-third.hide {
+  display: none
+}
+
+.column.hide {
+  display: none
+}
