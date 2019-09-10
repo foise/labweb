@@ -1,9 +1,9 @@
 document.querySelector('#card').oninput = function () {
-  let val = this.value.trim();
+  let valSearch = this.value.trim();
   let cardItems = document.querySelectorAll('.card');
-  if (val != '') {
+  if (valSearch != '') {
     cardItems.forEach(function (elem) {
-      if (elem.innerText.search(val) == -1) {
+      if (elem.innerText.search(valSearch) == -1) {
         elem.classList.add('hide');
       } else {
         elem.classList.remove('hide');
