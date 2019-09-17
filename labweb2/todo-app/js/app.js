@@ -1,13 +1,13 @@
 window.onload = function () {
-  var btn = document.getElementById('button');
-  var txtArea = document.getElementById('textarea');
+  var addButton = document.getElementById('button');
+  var taskAdd = document.getElementById('new-task');
 
   // add task handler
-  btn.onclick = function () {
+  addButton.onclick = function () {
     // add element to UI
-    var taskContent = txtArea.value;
+    var taskContent = taskAdd.value;
     var containerToDo = document.getElementById('container-to-do');
-    var newTask = document.createElement('div');
+    var newTask = document.createElement('task-box');
     newTask.classList.add('new', 'checkbox');
     containerToDo.append(newTask);
     var label = document.createElement('label');
@@ -21,22 +21,19 @@ window.onload = function () {
     icon.classList.add('glyphicon', 'glyphicon-trash', 'icon', 'remove-card');
     newTask.append(icon);
     newTask.setAttribute('id', 'task');
-    txtArea.value = "";
+    taskAdd.value = "";
 
     // register events here:
 
     // complete task
-    // TODO: labeled - not valid name for CSS and context
     check.onclick = function () {
-      label.classList.toggle('labeled');
+      label.classList.toggle('completed');
     };
 
-    // TODO: delete task event
+    // delete task
     icon.onclick = function () {
-      taskToDelete = document.getElementById('task');
+      var taskToDelete = document.getElementById('task');
       taskToDelete.remove();
-
-      console.log('delete');
     };
   };
 
