@@ -11,14 +11,15 @@
   </head>
 
   <body>
-    <section class="app">
+    <section class="app" style="display: block">
       <div class="container">
         <div class="row">
           <div class="col-xs-12">
             <h1>TODO APP</h1>
-            <input class="form-control" id="new-task" placeholder="New task text">
-            <button id="button" type="submit" class="btn btn-primary">Add</button>
-            <div id="container-to-do"></div>
+            <input class="form-control" id="new-task" placeholder="New task text" autofocus>
+            <button id="add-button" type="submit" class="btn btn-primary">Add</button>
+            <button id="complete-all" type="button" class="btn">Complete all</button>
+            <div id="container-to-do" class="container-to-do"></div>
           </div>
         </div>
       </div>

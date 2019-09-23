@@ -1,5 +1,5 @@
 window.onload = function () {
-  var addButton = document.getElementById('button');
+  var addButton = document.getElementById('add-button');
   var taskAdd = document.getElementById('new-task');
 
   // add task handler
@@ -13,6 +13,9 @@ window.onload = function () {
     var label = document.createElement('label');
     var check = document.createElement('input');
     check.setAttribute('type', 'checkbox');
+    check.setAttribute('class', 'checkboxes')
+    label.setAttribute('id', 'label');
+    label.setAttribute('class', 'labels');
     label.append(check);
     newTask.append(label);
     var text = document.createTextNode(taskContent);
@@ -26,24 +29,34 @@ window.onload = function () {
     // register events here:
 
     // complete task
-    check.onclick = function () {
+    check.onclick = function completeTask() {
       label.classList.toggle('completed');
     };
 
     // delete task
-    icon.onclick = function () {
+    icon.onclick = function deleteTask() {
       var taskToDelete = document.getElementById('task');
       taskToDelete.remove();
     };
   };
 
-  // TODO: complete all handler here
-  /*
-    var completeAll = document.getElementById('complete-all');
-    completeAll.onclick = function () {
-      console.log('complete all');
-    };
-  */
+  //complete all handler
+
+  var completeAll = document.getElementById('complete-all');
+
+  completeAll.onclick = function completeAllTasks() {
+    let tasksToComplete = document.querySelectorAll('.labels');
+    for (let elem of tasksToComplete) {
+      if (elem.classList.value !== 'labels completed') {
+        elem.classList.toggle('completed');
+        let checksToCheck = elem.getElementsByClassName('checkboxes');
+        for (let elem of checksToCheck) {
+          elem.checked = true;
+        }
+      }
+    }
+  };
+
 
 
   // TODO: filter tasks
