@@ -10,8 +10,8 @@ window.onload = function () {
     var newTask = document.createElement('task-box');
     newTask.classList.add('new', 'checkbox');
     containerToDo.append(newTask);
-    var label = document.createElement('label');
     var check = document.createElement('input');
+    var label = document.createElement('label');
     check.setAttribute('type', 'checkbox');
     check.setAttribute('class', 'checkboxes')
     label.setAttribute('id', 'label');
@@ -60,20 +60,19 @@ window.onload = function () {
 
 
   // TODO: filter tasks
-  /*
-    var filterShowAll = document.getElementById('filter-show-all');
-    filterShowAll.onclick = function () {
-      console.log('show all');
-    };
 
-    var filterShowCompleted = document.getElementById('filter-show-completed');
-    filterShowCompleted.onclick = function () {
-      console.log('show completed');
-    };
+  var filterShowAll = document.getElementById('filter-show-all');
+  filterShowAll.onclick = function showAll() {
 
-    var filterShowCompleted = document.getElementById('filter-show-removed');
-    filterShowRemoved.onclick = function () {
-      console.log('show removed');
-    };
-  */
+  };
+
+  var filterShowCompleted = document.getElementById('filter-show-completed');
+  filterShowCompleted.onclick = function showCompleted() {
+
+  };
+
+  var filterShowCompleted = document.getElementById('filter-show-removed');
+  filterShowRemoved.onclick = function () {
+
+  };
 }
