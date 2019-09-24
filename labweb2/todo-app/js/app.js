@@ -37,6 +37,7 @@ window.onload = function () {
     // delete task
     icon.onclick = function deleteTask(event) {
       event.target.parentNode.classList.add('deleted');
+      event.target.parentNode.classList.add('removed');
     };
   };
 
@@ -65,9 +66,7 @@ window.onload = function () {
   filterShowAll.onclick = function showAll() {
     let tasksToShow = document.querySelectorAll('.new');
     for (let elem of tasksToShow) {
-      if (elem.classList.value = 'new checkbox deleted') {
-        elem.classList.remove('deleted');
-      }
+      elem.classList.remove('removed');
     }
 
   };
@@ -79,23 +78,25 @@ window.onload = function () {
       let completedTasks = elem1.querySelectorAll('.labels');
       for (let elem of completedTasks) {
         if (elem.classList.value == 'labels completed') {
-          elem1.classList.remove('deleted')
+          elem1.classList.remove('removed');
         } else {
-          elem1.classList.toggle('deleted');
+          elem1.classList.toggle('removed');
         }
       }
     }
   };
 
-  var filterShowRemoved = document.getElementById('filter-show-removed');
-  filterShowRemoved.onclick = function showRemoved() {
+  var filterShowDeleted = document.getElementById('filter-show-deleted');
+  filterShowDeleted.onclick = function showRemoved() {
     let tasksToShow = document.querySelectorAll('.new');
     for (let elem of tasksToShow) {
-      if (elem.classList.value = 'new checkbox deleted') {
-        elem.classList.remove('deleted');
-      } else {
-        elem.classList.add('deleted');
+      if (elem.classList.value == 'new checkbox deleted removed') {
+        elem.classList.remove('removed');
+      }
+      if (elem.classList.value == 'new checkbox') {
+        elem.classList.toggle('removed');
       }
     }
+
   };
 }

@@ -152,5 +152,9 @@ input {
 }
 
 .new.checkbox.deleted {
+  color: red;
+}
+
+.new.checkbox.removed {
   display: none;
 }
