@@ -26,19 +26,17 @@ window.onload = function () {
       newTask.append(icon);
       newTask.setAttribute('id', 'task');
       taskAdd.value = '';
+
+      // complete task
+      check.onclick = function completeTask() {
+        label.classList.toggle('completed');
+      };
+      // delete task
+      icon.onclick = function deleteTask(event) {
+        event.target.parentNode.classList.add('deleted');
+        event.target.parentNode.classList.add('removed');
+      };
     }
-    // register events here:
-
-    // complete task
-    check.onclick = function completeTask() {
-      label.classList.toggle('completed');
-    };
-
-    // delete task
-    icon.onclick = function deleteTask(event) {
-      event.target.parentNode.classList.add('deleted');
-      event.target.parentNode.classList.add('removed');
-    };
   };
 
   //complete all handler
@@ -47,26 +45,22 @@ window.onload = function () {
 
   completeAll.onclick = function completeAllTasks() {
     let tasksToComplete = document.querySelectorAll('.labels');
-    for (let elem of tasksToComplete) {
-      if (elem.classList.value !== 'labels completed') {
-        elem.classList.toggle('completed');
-        let checksToCheck = elem.getElementsByClassName('checkboxes');
-        for (let elem of checksToCheck) {
-          elem.checked = true;
+    for (let task of tasksToComplete) {
+      if (task.classList.contains('completed') == false) {
+        task.classList.toggle('completed');
+        let checkboxesAll = task.getElementsByClassName('checkboxes');
+        for (let checkbox of checkboxesAll) {
+          checkbox.checked = true;
         }
       }
     }
   };
 
-
-
-  // TODO: filter tasks
-
   var filterShowAll = document.getElementById('filter-show-all');
   filterShowAll.onclick = function showAll() {
     let tasksToShow = document.querySelectorAll('.new');
-    for (let elem of tasksToShow) {
-      elem.classList.remove('removed');
+    for (let task of tasksToShow) {
+      task.classList.remove('removed');
     }
 
   };
@@ -74,13 +68,13 @@ window.onload = function () {
   var filterShowCompleted = document.getElementById('filter-show-completed');
   filterShowCompleted.onclick = function showCompleted() {
     let tasksToShow = document.querySelectorAll('.new');
-    for (let elem1 of tasksToShow) {
-      let completedTasks = elem1.querySelectorAll('.labels');
-      for (let elem of completedTasks) {
-        if (elem.classList.value == 'labels completed') {
-          elem1.classList.remove('removed');
+    for (let task of tasksToShow) {
+      let completedTasks = task.querySelectorAll('.labels');
+      for (let completedTask of completedTasks) {
+        if (completedTask.classList.contains('completed')) {
+          task.classList.remove('removed');
         } else {
-          elem1.classList.toggle('removed');
+          task.classList.toggle('removed');
         }
       }
     }
@@ -89,12 +83,12 @@ window.onload = function () {
   var filterShowDeleted = document.getElementById('filter-show-deleted');
   filterShowDeleted.onclick = function showRemoved() {
     let tasksToShow = document.querySelectorAll('.new');
-    for (let elem of tasksToShow) {
-      if (elem.classList.value == 'new checkbox deleted removed') {
-        elem.classList.remove('removed');
+    for (let task of tasksToShow) {
+      if (task.classList.contains('deleted')) {
+        task.classList.remove('removed');
       }
-      if (elem.classList.value == 'new checkbox') {
-        elem.classList.toggle('removed');
+      if (task.classList.contains('deleted') == false) {
+        task.classList.toggle('removed', true);
       }
     }
 
