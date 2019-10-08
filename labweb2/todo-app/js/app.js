@@ -86,8 +86,7 @@ window.onload = function () {
     for (let task of tasksToShow) {
       if (task.classList.contains('deleted')) {
         task.classList.remove('removed');
-      }
-      if (task.classList.contains('deleted') == false) {
+      } else {
         task.classList.toggle('removed', true);
       }
     }
