@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Calendar</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+
+  <body>
+    <div id="calendar-box">
+      <div class="month">
+        <ul>
+          <li>July <span class="year">2019</span></li>
+          <label><input id="check-dark" type="checkbox">
+            Dark theme</input></label>
+        </ul>
+      </div>
+      <ul class="weekdays">
+        <li>Mon</li>
+        <li>Tue</li>
+        <li>Wen</li>
+        <li>Thu</li>
+        <li>Fri</li>
+        <li>Sat</li>
+        <li>Sun</li>
+      </ul>
+      <div class="days">
+        <table>
+          <tr>
+            <td>1 Jul</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td bgcolor="#F0F0F0">6</td>
+            <td bgcolor="#F0F0F0">7</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>9</td>
+            <td class="active-day"><span>10</span></td>
+            <td>11</td>
+            <td>12</td>
+            <td bgcolor="#F0F0F0">13</td>
+            <td bgcolor="#F0F0F0">14</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td class="holiday"><span>18<br>
+                Nelson Mandela Day</span></td>
+            <td>19
+            </td>
+            <td bgcolor="#F0F0F0">20</td>
+            <td bgcolor="#F0F0F0">21</td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td bgcolor="#F0F0F0">27</td>
+            <td bgcolor="#F0F0F0">28</td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td><span>1 Aug</span></td>
+            <td><span>2</span></td>
+            <td bgcolor="#F0F0F0"><span>3</span></td>
+            <td bgcolor="#F0F0F0"><span>4</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script src="js/darkthemecheck.js"></script>
+  </body>

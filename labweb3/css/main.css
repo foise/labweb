@@ -1,0 +1,123 @@
+ul {
+  list-style-type: none;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+}
+
+.month {
+
+  width: 80%;
+  background: white;
+  text-align: left;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+
+}
+
+.month ul li {
+  color: black;
+  font-size: 30px;
+  font-family: sans-serif;
+
+}
+
+.year {
+  font-size: 35px;
+  font-family: Arial;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 5px 0;
+  width: 80%;
+  background-color: white;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: Black;
+  text-align: right;
+}
+
+.days table {
+  border-collapse: collapse;
+  width: 80%;
+  height: 100%;
+}
+
+.days td {
+  height: 40px;
+  width: 13.6%;
+  text-align: right;
+  border: 1px solid lightgray;
+  padding-bottom: 85px;
+  padding-right: 10px;
+  padding-top: 5px;
+
+}
+
+span {
+  color: gray;
+}
+
+/* .days {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #777;
+} */
+
+.active-day span {
+  color: white;
+  background-color: red;
+  height: 0;
+  margin: 0;
+  padding: 5% 5%;
+  border-radius: 100%;
+}
+
+
+.holiday span {
+  color: lightpink;
+}
+
+#calendar-box.dark {
+  background-color: black;
+}
+
+#calendar-box.dark td {
+  color: white;
+  background-color: black;
+  border: 1px solid lightgray;
+}
+
+#calendar-box.dark ul {
+  background-color: black;
+}
+
+#calendar-box.dark li {
+  color: white;
+}
+
+#calendar-box.dark.active-day span {
+  color: white;
+  background-color: red;
+  height: 0;
+  margin: 0;
+  padding: 5% 5%;
+  border-radius: 100%;
+}
+
+#calendar-box.dark label {
+  color: white;
+}
