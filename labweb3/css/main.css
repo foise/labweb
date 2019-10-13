@@ -91,6 +91,14 @@ span {
   color: lightpink;
 }
 
+.weekend {
+  background-color: #F0F0F0;
+}
+
+#calendar-box.label.dark {
+  background-color: black;
+}
+
 #calendar-box.dark {
   background-color: black;
 }
