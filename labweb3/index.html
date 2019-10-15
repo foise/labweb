@@ -14,18 +14,18 @@
           <li>July <span class="year">2019</span></li>
         </ul>
       </div>
-      <label><input id="check-dark" type="checkbox">Dark theme</input></label>
-      <ul class="weekdays">
-        <li>Mon</li>
-        <li>Tue</li>
-        <li>Wen</li>
-        <li>Thu</li>
-        <li>Fri</li>
-        <li>Sat</li>
-        <li>Sun</li>
-      </ul>
+      <label><input id="check-dark" type="checkbox">Dark Theme</label>
       <div class="days">
         <table>
+          <div class="weekdays">
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wen</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+          </div>
           <tr>
             <td>1 Jul</td>
             <td>2</td>
@@ -38,7 +38,7 @@
           <tr>
             <td>8</td>
             <td>9</td>
-            <td class="active-day"><span>10</span></td>
+            <td><span class="active-day">10</span></td>
             <td>11</td>
             <td>12</td>
             <td class="weekend">13</td>
@@ -48,10 +48,9 @@
             <td>15</td>
             <td>16</td>
             <td>17</td>
-            <td class="holiday"><span>18<br>
-                Nelson Mandela Day</span></td>
-            <td>19
+            <td>18<div class="holiday">Nelson Mandela Day</div>
             </td>
+            <td>19</td>
             <td class="weekend">20</td>
             <td class="weekend">21</td>
           </tr>
@@ -68,10 +67,10 @@
             <td>29</td>
             <td>30</td>
             <td>31</td>
-            <td><span>1 Aug</span></td>
-            <td><span>2</span></td>
-            <td class="weekend"><span>3</span></td>
-            <td class="weekend"><span>4</span></td>
+            <td class="faded-month">1 Aug</td>
+            <td class="faded-month">2</td>
+            <td class="weekend" class="faded-month">3</td>
+            <td class="weekend" class="faded-month">4</td>
           </tr>
         </table>
       </div>

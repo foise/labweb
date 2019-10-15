@@ -32,20 +32,6 @@ body {
   font-family: Arial;
 }
 
-.weekdays {
-  margin: 0;
-  padding: 5px 0;
-  width: 100%;
-  background-color: white;
-}
-
-.weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: Black;
-  text-align: right;
-}
-
 .days table {
   border-collapse: collapse;
   width: 100%;
@@ -62,23 +48,25 @@ body {
 
 }
 
-span {
-  color: gray;
+.faded-month {
+  color: grey;
 }
 
-.active-day span {
+.active-day {
   color: white;
   background-color: red;
   height: 0;
   margin: 0;
-  padding: 5% 5%;
-  border-radius: 100%;
+  padding: 2% 2%;
+  border-radius: 50%;
 }
 
 
-.holiday span {
+.holiday {
+  position: relative;
+  top: 10px;
+  text-align: center;
   color: lightpink;
-  height: 0;
 }
 
 .weekend {
