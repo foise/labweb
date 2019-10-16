@@ -39,20 +39,20 @@ body {
 }
 
 .days td {
+  position: relative;
   height: 40px;
   width: 13.6%;
   text-align: right;
   border: 1px solid lightgray;
   padding-bottom: 85px;
   padding-right: 10px;
-
 }
 
 .faded-month {
   color: grey;
 }
 
-.active-day {
+.active-day span {
   color: white;
   background-color: red;
   height: 0;
@@ -63,9 +63,8 @@ body {
 
 
 .holiday {
-  position: relative;
-  top: 10px;
-  text-align: center;
+  left: 20px;
+  position: absolute;
   color: lightpink;
 }
 

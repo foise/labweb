@@ -17,7 +17,7 @@
       <label><input id="check-dark" type="checkbox">Dark Theme</label>
       <div class="days">
         <table>
-          <div class="weekdays">
+          <thead class="weekdays">
             <th>Mon</th>
             <th>Tue</th>
             <th>Wen</th>
@@ -25,7 +25,7 @@
             <th>Fri</th>
             <th>Sat</th>
             <th>Sun</th>
-          </div>
+          </thead>
           <tr>
             <td>1 Jul</td>
             <td>2</td>
@@ -38,7 +38,7 @@
           <tr>
             <td>8</td>
             <td>9</td>
-            <td><span class="active-day">10</span></td>
+            <td class="active-day"><span>10</span></td>
             <td>11</td>
             <td>12</td>
             <td class="weekend">13</td>
@@ -48,7 +48,8 @@
             <td>15</td>
             <td>16</td>
             <td>17</td>
-            <td>18<div class="holiday">Nelson Mandela Day</div>
+            <td>18
+              <div class="holiday">Nelson Mandela Day</div>
             </td>
             <td>19</td>
             <td class="weekend">20</td>
@@ -75,5 +76,6 @@
         </table>
       </div>
     </div>
-    <script src="js/darkthemecheck.js"></script>
+    <script src="js/darkThemeCheck.js"></script>
+    <script src="js/dateSelect.js"></script>
   </body>
