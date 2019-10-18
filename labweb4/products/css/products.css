@@ -51,8 +51,6 @@ header {
   width: 30%;
   height: 100%;
   list-style-type: none;
-  display: flex;
-  flex-flow: column wrap;
 }
 
 .category-menu span {
