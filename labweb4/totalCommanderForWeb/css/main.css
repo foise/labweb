@@ -1,0 +1,33 @@
+.directories-main-table {
+  width: 500px;
+}
+
+.directories-main-table td {
+  width: 50%;
+  border: 1px solid black;
+}
+
+.directories-content-table {
+  width: 500px;
+}
+
+.directory-contents {
+  vertical-align: text-top;
+}
+
+
+.content.hidden-folder {
+  color: lightgrey;
+}
+
+.content.file {
+  color: red;
+}
+
+.content.image {
+  color: green;
+}
+
+.chosen {
+  background-color: lightblue;
+}
