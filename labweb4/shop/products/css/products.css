@@ -46,10 +46,15 @@ header {
 }
 
 .category-menu {
+  position: relative;
+  left: 20px;
   color: pink;
   float: left;
   width: 30%;
+  height: 100%;
   list-style-type: none;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .category-menu span {
@@ -68,12 +73,76 @@ header {
   color: rgba(255, 123, 189, 0.993)
 }
 
+#main-view h2 {
+  position: relative;
+  top: 65px;
+  width: 100%;
+  float: left;
+  Color: pink;
+  text-align: center;
+}
 
-.product-menu {
+.product-box {
   background-color: pink;
   position: absolute;
   top: 12px;
   right: 135px;
+  width: 70%;
+  display: block;
+  text-align: center;
+}
+
+.product-box p {
+  margin: 15px;
+  font-family: sans-serif;
+}
+
+.product-box h3 {
+  text-align: center;
+  color: black;
+  padding-top: 10px;
+  font-family: sans-serif;
+}
+
+.product-box a:hover {
+  font-family: sans-serif;
+  color: rgba(255, 123, 189, 0.993)
+}
+
+.product-box img {
+  padding: 10px;
+  float: left;
+  width: 20%;
+  border-radius: 30%;
+}
+
+.product-box button {
+  margin-bottom: 10px;
+  background-color: Black;
+  border: none;
+  color: Pink;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+
+}
+
+.product-box button:hover {
+
+  box-shadow: 0 0px 10px 0 black,
+    0 0px 10px 0 black;
+
+}
+
+.product-menu {
+  background-color: pink;
+  position: relative;
+  right: 85px;
+  margin: 50px;
+  float: right;
   width: 70%;
   display: flex;
   flex-flow: row wrap;
