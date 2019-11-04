@@ -1,7 +1,4 @@
 function beginWar() {
-  var death = 0;
-  var spawnFail = 0;
-
   var soldier1 = {
     name: 'Soldier1',
     health: 100,
@@ -24,7 +21,6 @@ function beginWar() {
       console.log('Soldier2 got shot!');
       if (this.health === 0) {
         console.log('Soldier1 is dead!!');
-        death = 1;
       }
     }
   };
@@ -51,7 +47,6 @@ function beginWar() {
       console.log('Soldier2 got shot!');
       if (this.health === 0) {
         console.log('Soldier2 is dead!!!')
-        death = 1;
       }
     }
   };
