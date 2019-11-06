@@ -6,19 +6,19 @@ var payment = {
 var cashbox = {
   amount: 0,
   addPayment: function (payment) {
-    if (payment.amount < 0) {
-      payment.info = 'cannot add negative numbers'
+    if (payment.amount < 0 || typeof payment.amount !== 'number' || typeof payment.info !== 'string') {
+      return false;
     } else {
       this.amount = this.amount + payment.amount;
+      return payment.info;
     }
-    console.log(payment.info);
   },
   refundPayment: function (payment) {
-    if (payment.amount > 0) {
-      payment.info = 'cannot subtract positive numbers'
+    if (payment.amount > 0 || typeof payment.amount !== 'number' || typeof payment.info !== 'string') {
+      return false;
     } else {
       this.amount = this.amount + amountToSub;
+      return payment.info;
     }
-    console.log(payment.info);
   },
 };

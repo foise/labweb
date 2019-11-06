@@ -7,21 +7,23 @@ var catVasiliy = {
   },
   reaction: function (event) {
     var indexOfEvent = this.listOfEvents.indexOf(event);
-    this.meow();
-    if (indexOfEvent > -1) {
-      switch (indexOfEvent) {
-        case 0:
-        case 1:
+    if (indexOfEvent > -1 && typeof event === 'string') {
+      this.meow();
+      switch (event) {
+        case 'vacuum cleaner':
+        case 'beep':
           console.log('run from here!!!!');
           break;
-        case 4:
+        case 'ksksks':
           console.log('sksksk');
           break;
-        case 2:
-        case 3:
+        case 'food':
+        case 'mice':
           console.log('OwO, what`s this?');
           break;
       }
+    } else {
+      return false;
     }
   },
 };

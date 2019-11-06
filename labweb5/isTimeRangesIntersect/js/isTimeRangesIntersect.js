@@ -6,22 +6,26 @@ function getDate(time) {
 }
 
 var isTimeRangesIntersect = function (timeRange1, timeRange2) {
-  var startTime1 = getDate(timeRange1[0]);
-  var endTime1 = getDate(timeRange1[1]);
-  var startTime2 = getDate(timeRange2[0]);
-  var endTime2 = getDate(timeRange2[1]);
-  //validation
-  if (startTime1 >= endTime1 || startTime2 >= endTime2) {
-    validation = false;
-    console.log('incorrect range');
-  } else {
-    validation = true;
-  }
+  if (Array.isArray(timeRange1) && Array.isArray(timeRange2)) {
+    var startTime1 = getDate(timeRange1[0]);
+    var endTime1 = getDate(timeRange1[1]);
+    var startTime2 = getDate(timeRange2[0]);
+    var endTime2 = getDate(timeRange2[1]);
+    //validation
+    if (startTime1 >= endTime1 || startTime2 >= endTime2) {
+      validation = false;
+      return 'incorrect range';
+    } else {
+      validation = true;
+    }
 
-  //overlap
-  if (endTime1 >= startTime2 && endTime1 <= endTime2 && validation) {
-    return true;
+    //overlap
+    if (endTime1 >= startTime2 && endTime1 <= endTime2 && validation) {
+      return true;
+    } else {
+      return false;
+    }
   } else {
-    return false;
+    return 'input is invalid';
   }
 }

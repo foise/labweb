@@ -1,6 +1,6 @@
 function replaceString(text, searchString, repString) {
-  if (typeof text != 'string' || typeof searchString != 'string' || typeof repString != 'string') {
-    console.log('Not String input');
+  if (typeof text !== 'string' || typeof searchString !== 'string' || typeof repString !== 'string') {
+    return 'Not String input';
   } else {
     text.toLowerCase();
     searchString.toLowerCase();
@@ -9,8 +9,7 @@ function replaceString(text, searchString, repString) {
     while (foundPos === 0) {
       foundPos = text.indexOf(searchString);
       if (foundPos === -1) {
-        console.log('string not found');
-        return false;
+        return 'string not found';
       } else {
         return text.replace(searchString, repString);
       }

@@ -1,4 +1,5 @@
 function beginWar() {
+  const fieldSize = 100;
   var soldier1 = {
     name: 'Soldier1',
     health: 100,
@@ -6,21 +7,57 @@ function beginWar() {
       x: 40,
       y: 20
     },
-    shot: function (shotX, shotY) {
+    shotCoordinates: {
+      x: 0,
+      y: 0
+    },
+    shot: function () {
+      var shotFail = true;
+      while (shotFail) {
+        var shotX = Math.floor(Math.random() * fieldSize);
+        var shotY = Math.floor(Math.random() * fieldSize);
+        if (shotX === this.currentCoordinates.x && shotY === this.currentCoordinates.y) {
+          console.log('Soldier1 is trying to kill himself!!')
+          shotFail = true;
+        } else {
+          shotFail = false;
+        }
+      }
       console.log('Soldier1 shoots!!');
       console.log(shotX, shotY);
+      this.shotCoordinates.x = shotX;
+      this.shotCoordinates.y = shotY;
     },
-    spawn: function (spawnX, spawnY) {
+    spawn: function (secondSpawnX) {
+      var spawnFail = true;
+      while (spawnFail) {
+        var spawnX = Math.floor(Math.random() * fieldSize);
+        var spawnY = Math.floor(Math.random() * fieldSize);
+        if (spawnX === secondSpawnX) {
+          console.log('Soldier1 is trying to spawn inside Soldier2!');
+          spawnFail = true;
+        } else {
+          spawnFail = false;
+        }
+      }
+
       this.currentCoordinates.x = spawnX;
       this.currentCoordinates.y = spawnY;
       console.log('Soldier1 spawns!');
       console.log(this.currentCoordinates.x, this.currentCoordinates.y);
     },
-    gotShot: function () {
-      this.health = this.health - 25;
-      console.log('Soldier2 got shot!');
-      if (this.health === 0) {
-        console.log('Soldier1 is dead!!');
+    gotShot: function (shotX, shotY) {
+      if (shotX === this.currentCoordinates.x && shotY === this.currentCoordinates.y) {
+        this.health = this.health - 25;
+        console.log('Soldier2 got shot!');
+      }
+    },
+    death: function () {
+      if (this.health <= 0) {
+        console.log('Soldier2 is dead!');
+        return true;
+      } else {
+        return false;
       }
     }
   };
@@ -32,62 +69,73 @@ function beginWar() {
       x: 20,
       y: 20
     },
-    shot: function (shotX, shotY) {
+    shotCoordinates: {
+      x: 0,
+      y: 0
+    },
+    shot: function () {
+      var shotFail = true;
+      while (shotFail) {
+        var shotX = Math.floor(Math.random() * fieldSize);
+        var shotY = Math.floor(Math.random() * fieldSize);
+        if (shotX === this.currentCoordinates.x && shotY === this.currentCoordinates.y) {
+          console.log('Soldier2 is trying to kill himself!!')
+          shotFail = true;
+        } else {
+          shotFail = false;
+        }
+      }
       console.log('Soldier2 shoots!!');
       console.log(shotX, shotY);
+      this.shotCoordinates.x = shotX;
+      this.shotCoordinates.y = shotY;
     },
-    spawn: function (spawnX, spawnY) {
+    spawn: function (secondSpawnX) {
+      var spawnFail = true;
+      while (spawnFail) {
+        var spawnX = Math.floor(Math.random() * fieldSize);
+        var spawnY = Math.floor(Math.random() * fieldSize);
+        if (spawnX === secondSpawnX) {
+          console.log('Soldier2 is trying to spawn inside Soldier1!')
+          spawnFail = true;
+        } else {
+          spawnFail = false;
+        }
+      }
+
       this.currentCoordinates.x = spawnX;
       this.currentCoordinates.y = spawnY;
       console.log('Soldier2 spawns!');
       console.log(this.currentCoordinates.x, this.currentCoordinates.y);
     },
-    gotShot: function () {
-      this.health = this.health - 25;
-      console.log('Soldier2 got shot!');
-      if (this.health === 0) {
-        console.log('Soldier2 is dead!!!')
+    gotShot: function (shotX, shotY) {
+      if (shotX === this.currentCoordinates.x && shotY === this.currentCoordinates.y) {
+        this.health = this.health - 25;
+        console.log('Soldier2 got shot!');
+      }
+    },
+    death: function () {
+      if (this.health <= 0) {
+        console.log('Soldier2 is dead!');
+        return true;
+      } else {
+        return false;
       }
     }
   };
-  var spawnX1 = Math.floor(Math.random() * 100);
-  var spawnY1 = Math.floor(Math.random() * 100);
 
-  var spawnX2 = Math.floor(Math.random() * 100);
-  var spawnY2 = Math.floor(Math.random() * 100);
+  soldier1.spawn(0);
+  soldier2.spawn(soldier1.currentCoordinates.x);
 
-  if (spawnX1 != spawnX2 && spawnY1 != spawnY2) {
-    soldier1.spawn(spawnX1, spawnY1);
-    soldier2.spawn(spawnX2, spawnY2);
-  } else {
-    console.log('Spawn fail!');
-    return 0;
-  }
-  setInterval(function () {
-    if (death === 0) {
-      // var shotX1 = Math.floor(Math.random() * 100);
-      // var shotY1 = Math.floor(Math.random() * 100);
-      var shotX1 = spawnX2;
-      var shotY1 = spawnY2;
-
-      var shotX2 = Math.floor(Math.random() * 100);
-      var shotY2 = Math.floor(Math.random() * 100);
-
-      if (shotX1 != soldier1.currentCoordinates.x && shotY1 != soldier1.currentCoordinates.y && shotX2 != soldier2.currentCoordinates.x && shotY2 != soldier2.currentCoordinates.y) {
-        soldier1.shot(shotX1, shotY1);
-        soldier2.shot(shotX2, shotY2);
-
-        if (shotX1 === soldier2.currentCoordinates.x && shotY1 === soldier2.currentCoordinates.y) {
-          soldier2.gotShot();
-        }
-        if (shotX2 === soldier1.currentCoordinates.x && shotY2 === soldier1.currentCoordinates.y) {
-          soldier1.gotShot();
-        }
-      } else {
-        console.log('Someone tried to shoot himself!!');
-      }
+  var action = setInterval(function () {
+    if (soldier2.death() || soldier1.death()) {
+      clearInterval(action);
     } else {
-      return 0;
+      soldier1.shot();
+      soldier2.shot();
+
+      soldier2.gotShot(soldier1.shotCoordinates.x, soldier1.shotCoordinates.y);
+      soldier1.gotShot(soldier2.shotCoordinates.x, soldier2.shotCoordinates.y);
     }
-  }, 1000);
+  }, 1);
 }
