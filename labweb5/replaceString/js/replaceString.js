@@ -1,18 +1,17 @@
 function replaceString(text, searchString, repString) {
   if (typeof text !== 'string' || typeof searchString !== 'string' || typeof repString !== 'string') {
-    return 'Not String input';
+    return false;
   } else {
-    text.toLowerCase();
-    searchString.toLowerCase();
-    var foundPos = 0;
-
-    while (foundPos === 0) {
-      foundPos = text.indexOf(searchString);
+    var newText = text;
+    for (var i = 0; i < text.length; i++) {
+      var foundPos = text.indexOf(searchString);
       if (foundPos === -1) {
-        return 'string not found';
+        return false;
       } else {
-        return text.replace(searchString, repString);
+        searchString = searchString;
+        newText = newText.replace(searchString, repString);
       }
     }
+    return newText;
   }
 }

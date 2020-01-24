@@ -134,7 +134,8 @@ function beginWar() {
       soldier1.shot();
       soldier2.shot();
 
-      soldier2.gotShot(soldier1.shotCoordinates.x, soldier1.shotCoordinates.y);
+      // soldier2.gotShot(soldier1.shotCoordinates.x, soldier1.shotCoordinates.y);
+      soldier2.gotShot(soldier2.currentCoordinates.x, soldier2.currentCoordinates.y);
       soldier1.gotShot(soldier2.shotCoordinates.x, soldier2.shotCoordinates.y);
     }
   }, 1);
