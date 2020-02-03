@@ -1,6 +1,14 @@
+import appTemplate from '../listing.template.html';
 window.onload = function () {
   var listingElements = ['apple', 'orange'];
-  var storeElements = [];
+  var storeElements = ['Banana', 'Kiwi'];
+
+
+  var compiled = _.template(appTemplate)({
+    listing: listingElements,
+    store: storeElements
+  });
+  document.querySelector('.app').innerHTML = compiled;
 
   function addToStoreElements(element) {
     var elementPosition = listingElements.indexOf(element);
@@ -10,7 +18,23 @@ window.onload = function () {
     }
   }
 
-  function delElement() {
+  function truncateTables() {
+    listingElements.splice(0);
+    storeElements.splice(0);
+  }
+
+  function addToList() {
+    var newElem = prompt('Enter new element', 'new');
+    listingElements.push(newElem);
+  }
+
+  function sortStoreArray() {
+    storeElements.sort(function (a, b) {
+      return a.toLowerCase().localeCompare(b.toLowerCase());
+    });
+  }
+
+  function deleteSelectedElement() {
     var storeSelect = document.querySelector('.store-select option:checked');
     var listingSelect = document.querySelector('.listing-select option:checked');
     if (listingSelect != null) {
@@ -57,23 +81,19 @@ window.onload = function () {
     updateUI();
   }
   delButton.onclick = function () {
-    delElement();
+    deleteSelectedElement();
     updateUI();
   }
   truncButton.onclick = function () {
-    listingElements.splice(0);
-    storeElements.splice(0);
+    truncateTables();
     updateUI();
   }
   addToListing.onclick = function () {
-    var newElem = prompt('Enter new element', 'new');
-    listingElements.push(newElem);
+    addToList();
     updateUI();
   }
   sortStore.onclick = function () {
-    storeElements.sort(function (a, b) {
-      return a.toLowerCase().localeCompare(b.toLowerCase());
-    });
+    sortStoreArray();
     updateUI();
   }
 };

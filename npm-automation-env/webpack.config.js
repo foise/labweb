@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const Lodash = require('lodash');
 
 module.exports = {
   entry: './src/app.js',
@@ -20,11 +21,14 @@ module.exports = {
     }, {
       test: /\.html$/i,
       loader: 'html-loader',
+    }, {
+      test: /(\.tpl\.html)$/,
+      loader: 'lodash-template-module-loader',
     }]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.min.html',
+      filename: 'index.html',
       template: 'src/index.html'
     }),
     new MiniCssExtractPlugin({
